@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -197,7 +197,11 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         
         //Firebase Login
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            
             guard let result = authResult, error == nil else {
                 print("error creating user")
                 return
@@ -205,6 +209,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
             
             let user = result.user
             print("created user: \(user)")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         })
     }
     
