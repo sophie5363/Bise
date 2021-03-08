@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -195,6 +196,16 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         }
         
         //Firebase Login
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("error creating user")
+                return
+            }
+            
+            let user = result.user
+            print("created user: \(user)")
+        })
     }
     
     
@@ -280,7 +291,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
+        
         picker.dismiss(animated: true, completion: nil)
         print(info)
         
