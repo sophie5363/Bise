@@ -58,5 +58,9 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Merci d&apos;autoriser l&apos;accès pour prendre une photo de profil</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Merci d&apos;autoriser l&apos;accès pour sélectionner une photo pour votre profil</string>
 </dict>
 </plist>
