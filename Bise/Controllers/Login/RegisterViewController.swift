@@ -197,26 +197,41 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         
         //Firebase Login
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] authResult, error in
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
             guard let strongSelf = self else {
                 return
             }
             
-            guard let result = authResult, error == nil else {
-                print("error creating user")
+            guard !exists else {
+                //user already exists
+                strongSelf.alertUserLoginError(message: "Il semble qu'un compte exite déjà pour cette adresse email")
                 return
             }
             
-            let user = result.user
-            print("created user: \(user)")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+               
+                
+                guard authResult != nil, error == nil else {
+                    print("error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: BiseUser(firstName: firstName,
+                                                                 lastName: lastName,
+                                                                 emailAddress: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
+            
         })
+        
     }
     
     
-    func alertUserLoginError(){
+    func alertUserLoginError(message: String = "Veuillez entrer toutes les informations pour créer un compte"){
         let alert = UIAlertController(title: "Oups",
-                                      message: "Veuillez entrer toutes les informations pour créer un compte",
+                                      message: message,
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Fermer",

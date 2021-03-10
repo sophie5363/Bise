@@ -14,11 +14,46 @@ final class DatabaseManager {
     
     private let database = Database.database().reference()
     
-    public func test(){
+}
+
+//MARK: - Account Management
+
+extension DatabaseManager {
+    
+    public func userExists(with email: String,
+                           completion: @escaping ((Bool) -> Void)) {
         
-        database.child("foo").setValue(["something": true])
+        database.child(email).observeSingleEvent(of: .value, with: {snapshot in
+            guard  snapshot.value as? String != nil else{
+                completion(false)
+                return
+            }
+            completion(true)
+        })
+        
     }
     
-
     
+    /// Insert new user to database
+    public func insertUser(with user: BiseUser){
+        database.child(user.emailAddress).setValue([
+            "prénom": user.firstName,
+            "nom" : user.lastName,
+        ])
+        
+    }
+    
+}
+
+
+
+
+
+
+
+struct BiseUser {
+    let firstName: String
+    let lastName: String
+    let emailAddress: String
+    //    let profilePictureUl: String
 }
