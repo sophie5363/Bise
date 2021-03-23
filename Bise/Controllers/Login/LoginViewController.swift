@@ -68,10 +68,10 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Log In"
+        title = "Connexion"
         view.backgroundColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Créer",
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapRegister))
