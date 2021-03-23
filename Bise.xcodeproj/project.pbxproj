@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20DCE1409CD7DFA7146886B6 /* Pods_Bise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2379D7AD46D097B78AACBBCC /* Pods_Bise.framework */; };
+		AA89E11B741D40942E7E093D /* Pods_Bise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DDB7717E07B8500BA3E9B7 /* Pods_Bise.framework */; };
 		C0190BC125F6D92A0075AA3E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0190BC025F6D92A0075AA3E /* DatabaseManager.swift */; };
 		C0190BD925F6DC360075AA3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0190BD825F6DC360075AA3E /* GoogleService-Info.plist */; };
 		C02A6E6D25F3A2F4000C55DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02A6E6C25F3A2F4000C55DB /* AppDelegate.swift */; };
@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2379D7AD46D097B78AACBBCC /* Pods_Bise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29DDB7717E07B8500BA3E9B7 /* Pods_Bise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5445872813B121C297CA7C8C /* Pods-Bise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bise.release.xcconfig"; path = "Target Support Files/Pods-Bise/Pods-Bise.release.xcconfig"; sourceTree = "<group>"; };
 		5E8808EBDA4F87CCB3449217 /* Pods-Bise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bise.debug.xcconfig"; path = "Target Support Files/Pods-Bise/Pods-Bise.debug.xcconfig"; sourceTree = "<group>"; };
 		C0190BC025F6D92A0075AA3E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -45,6 +45,7 @@
 		C02A6E9725F3A76B000C55DB /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		C02A6E9A25F3A785000C55DB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C02A6E9F25F3B53E000C55DB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C0B04334260A8A3B004297FA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,17 +53,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20DCE1409CD7DFA7146886B6 /* Pods_Bise.framework in Frameworks */,
+				AA89E11B741D40942E7E093D /* Pods_Bise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		201A73B3C39ACFC7151D4FCA /* Frameworks */ = {
+		52A7C786D8E83F4E3DDDEA82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2379D7AD46D097B78AACBBCC /* Pods_Bise.framework */,
+				29DDB7717E07B8500BA3E9B7 /* Pods_Bise.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,7 +83,7 @@
 				C02A6E6B25F3A2F4000C55DB /* Bise */,
 				C02A6E6A25F3A2F4000C55DB /* Products */,
 				BA11FCE7DCE22EB65C0BE473 /* Pods */,
-				201A73B3C39ACFC7151D4FCA /* Frameworks */,
+				52A7C786D8E83F4E3DDDEA82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +98,7 @@
 		C02A6E6B25F3A2F4000C55DB /* Bise */ = {
 			isa = PBXGroup;
 			children = (
+				C0B04334260A8A3B004297FA /* Info.plist */,
 				C0190BD825F6DC360075AA3E /* GoogleService-Info.plist */,
 				C02A6E8525F3A4F6000C55DB /* Resources */,
 				C02A6E8425F3A4E8000C55DB /* ViewModels */,
@@ -269,11 +271,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bise/Pods-Bise-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bise/Pods-Bise-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
