@@ -189,6 +189,7 @@
 				C02A6E6625F3A2F4000C55DB /* Frameworks */,
 				C02A6E6725F3A2F4000C55DB /* Resources */,
 				E951FFB7BEC12608CFAEC4B6 /* [CP] Embed Pods Frameworks */,
+				30CE89811F4CE32994DB40D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +247,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		30CE89811F4CE32994DB40D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bise/Pods-Bise-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD5BEEBBFB6CDACEFC13590C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

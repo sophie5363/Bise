@@ -18,6 +18,11 @@ target 'Bise' do
 
   pod 'FBSDKLoginKit'
 
+# Google Sign In
+
+  pod 'GoogleSignIn'
+  
+
 
 
   pod 'MessageKit'
