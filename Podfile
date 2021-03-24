@@ -20,6 +20,18 @@ target 'Bise' do
 
 
 
+  pod 'MessageKit'
+
+  pod 'JGProgressHUD'
+
+  pod 'RealmSwift'
+
+  pod 'SDWebImage'
+
+
+
+
+
 
 
 
