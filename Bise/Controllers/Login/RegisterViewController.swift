@@ -225,9 +225,28 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
                     return
                 }
                 
-                DatabaseManager.shared.insertUser(with: BiseUser(firstName: firstName,
-                                                                 lastName: lastName,
-                                                                 emailAddress: email))
+                let biseUser = BiseUser(firstName: firstName,
+                                        lastName: lastName,
+                                        emailAddress: email)
+                DatabaseManager.shared.insertUser(with: biseUser, completion: {success in
+                    if success{
+                        //upload image
+                        guard let image = strongSelf.imageView.image,
+                              let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = biseUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: {result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("Storage mangager error: \(error)")
+                            }
+                        })
+                    }
+                })
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })

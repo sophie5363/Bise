@@ -39,11 +39,18 @@ extension DatabaseManager {
     
     
     /// Insert new user to database
-    public func insertUser(with user: BiseUser){
+    public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
             "prénom": user.firstName,
             "nom" : user.lastName,
-        ])
+        ], withCompletionBlock: { error, _ in
+            guard error == nil else {
+                print("failed to write to database")
+                completion(false)
+                return
+            }
+            completion(true)
+        })
         
     }
     
@@ -60,6 +67,9 @@ struct BiseUser {
         return safeEmail
     }
     
-    //    let profilePictureUl: String
+    var profilePictureFileName: String {
+//        /images/sophienanterre-gmail-com_profile_picture.png
+        return "\(safeEmail)_profile_picture.png"
+    }
     
 }

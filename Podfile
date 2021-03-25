@@ -14,6 +14,8 @@ target 'Bise' do
 
   pod 'Firebase/Database', '7.2-M1'
 
+  pod 'Firebase/Storage', '7.2-M1'
+
 # Facebook
 
   pod 'FBSDKLoginKit'
