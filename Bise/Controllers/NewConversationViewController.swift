@@ -14,7 +14,7 @@ class NewConversationViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for Users..."
+        searchBar.placeholder = "Chercher des contacts..."
         return searchBar
     }()
     
@@ -42,7 +42,7 @@ class NewConversationViewController: UIViewController {
         searchBar.delegate = self
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Annuler",
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(dismissSelf))
