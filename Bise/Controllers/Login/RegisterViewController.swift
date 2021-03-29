@@ -242,7 +242,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
                                 UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
                                 print(downloadUrl)
                             case .failure(let error):
-                                print("Storage mangager error: \(error)")
+                                print("Storage manager error: \(error)")
                             }
                         })
                     }
