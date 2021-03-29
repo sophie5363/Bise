@@ -154,7 +154,7 @@ class LoginViewController: UIViewController {
         facebookLoginButton.frame = CGRect(x: 30,
                                            y: loginButton.bottom+10,
                                            width: scrollView.width-60,
-                                           height: 52)
+                                           height: 28)
         googleLogInButton.frame = CGRect(x: 30,
                                          y: facebookLoginButton.bottom+10,
                                          width: scrollView.width-60,
@@ -193,6 +193,8 @@ class LoginViewController: UIViewController {
             }
             
             let user = result.user
+            
+            UserDefaults.standard.set(email, forKey: "email")
             
             print("Logged in User: \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
@@ -274,7 +276,7 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             
-            
+            UserDefaults.standard.set(email, forKey: "email")
             
             
             DatabaseManager.shared.userExists(with: email, completion: { exists in
