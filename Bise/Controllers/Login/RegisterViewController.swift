@@ -94,7 +94,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Créer un compte", for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .systemOrange
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true

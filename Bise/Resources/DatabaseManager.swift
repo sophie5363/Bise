@@ -45,12 +45,7 @@ extension DatabaseManager {
         })
         
     }
-    
-    
-    
-    
-    
-    
+
     /// Insert new user to database
     public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
@@ -104,13 +99,10 @@ extension DatabaseManager {
                     })
                 }
             })
-            
-            
+ 
         })
         
     }
-    
-    
     
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
@@ -126,22 +118,8 @@ extension DatabaseManager {
     public enum DatabaseError: Error {
         case failedToFetch
     }
-    
-    /**
-     users => [
-     [
-     [
-     "name":
-     "safe_email":
-     ]
-     [
-     "name":
-     "safe_email":
-     ]
-     ]
-     
-     **/
-    
+}
+
     struct BiseUser {
         let firstName: String
         let lastName: String
@@ -159,4 +137,4 @@ extension DatabaseManager {
         }
         
     }
-}
+
