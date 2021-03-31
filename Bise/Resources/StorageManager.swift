@@ -51,7 +51,7 @@ final class StorageManager {
     }
     
     public func downloadURL(for path: String,  completion: @escaping (Result<URL, Error>) -> Void){
-        let reference = storage.child("\(path)")
+        let reference = storage.child("\(path)") // "imagesxena5363-hotmail-fr_profile_picture.png"
         
         reference.downloadURL(completion: { url, error in
             guard let url = url, error == nil else {

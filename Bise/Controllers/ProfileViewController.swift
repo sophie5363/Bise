@@ -39,7 +39,11 @@ class ProfileViewController: UIViewController {
                                               width: self.view.width,
                                               height: 300))
         headerView.backgroundColor = .systemOrange
-        
+                
+        // Init image
+        // active constraints -> imageView.translatesAutoresizingMaskIntoConstraints = false
+        // add constraints : https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ProgrammaticallyCreatingConstraints.html
+                
         let imageView = UIImageView(frame: CGRect(x: (headerView.width-150) / 2,
                                                   y: 75,
                                                   width: 150,
