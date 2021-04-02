@@ -48,6 +48,9 @@ class NewConversationViewController: UIViewController {
         view.addSubview(noResultsLabel)
         view.addSubview(tableView)
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         searchBar.delegate = self
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
@@ -73,7 +76,7 @@ class NewConversationViewController: UIViewController {
     
 }
 
-extension NewConversationViewController: UITextViewDelegate, UITableViewDataSource {
+extension NewConversationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
@@ -105,7 +108,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         spinner.show(in: view)
         
-        self.searchUsers(query: text)
+        searchUsers(query: text)
     }
     
     func searchUsers(query: String) {
