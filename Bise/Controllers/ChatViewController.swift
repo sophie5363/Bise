@@ -16,6 +16,34 @@ struct Message: MessageType {
     public var kind: MessageKind
 }
 
+extension MessageKind {
+    var messageKindString: String {
+        switch self {
+        
+        case .text(_):
+            return "text"
+        case .attributedText(_):
+            return "attributed_text"
+        case .photo(_):
+            return "photo"
+        case .video(_):
+            return "video"
+        case .location(_):
+            return "location"
+        case .emoji(_):
+            return "emoji"
+        case .audio(_):
+            return "audio"
+        case .contact(_):
+            return "contact"
+        case .linkPreview(_):
+            return "link_preview"
+        case .custom(_):
+            return "custom"
+        }
+    }
+}
+
 struct Sender: SenderType {
     public var photoURL: String
     public var senderId: String
@@ -37,14 +65,15 @@ class ChatViewController: MessagesViewController {
     public let otherUserEmail: String
     
     public var isNewConversation = false
-  
-    
+
     private var messages = [Message]()
     
     private var selfSender: Sender? {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
         }
+        
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
        return Sender(photoURL: "",
                      senderId: UserDefaults.standard.value(forKey: "email") as! String,
@@ -100,7 +129,10 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                                   messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: message, completion: {success in
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail,
+                                                         name: self.title ?? "Utilisateur",
+                                                         firstMessage: message,
+                                                         completion: {success in
                 if success {
                     print("message sent")
                 }
@@ -116,12 +148,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     
     private func createMessageId() -> String? {
         // date; otherUserEmail, senderEmail, randomInt
-        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email")else {
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String else {
                 return nil
             }
         
+        let safeCurrentEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
+        
         let dateString = Self.dateFormatter.string(from: Date())
-        let newIdentifier = "\(otherUserEmail)_\(currentUserEmail)_\(dateString)"
+        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
         
         print("Created message id: \(newIdentifier)")
         
