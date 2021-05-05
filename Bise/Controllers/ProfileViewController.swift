@@ -61,7 +61,8 @@ class ProfileViewController: UIViewController {
             case .success(let url):
                 self?.downloadImage(imageView: imageView, url: url)
             case .failure(let error):
-                print("Failed to get download url: \(error)")
+                print("Failed download URL at \(path) with \(error)")
+                
             }
         })
         
