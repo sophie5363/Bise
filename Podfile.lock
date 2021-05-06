@@ -128,7 +128,7 @@ DEPENDENCIES:
   - Firebase/Auth (= 7.2-M1)
   - Firebase/Core (= 7.2-M1)
   - Firebase/Database (= 7.2-M1)
-  - Firebase/Storage (= 7.2-M1)
+  - Firebase/Storage
   - GoogleSignIn
   - JGProgressHUD
   - MessageKit
@@ -192,6 +192,6 @@ SPEC CHECKSUMS:
   RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
 
-PODFILE CHECKSUM: 6c43e2c5102e441741ef66f473aaa401614a5544
+PODFILE CHECKSUM: f459b0cf9bb8fd09efa54549f13768cba8e30638
 
 COCOAPODS: 1.10.1
