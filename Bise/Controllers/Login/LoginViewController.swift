@@ -207,8 +207,6 @@ class LoginViewController: UIViewController {
                     
                 case .failure(let error):
                     print("Failed to read data with error \(error)")
-                    
-                    
                 }
             })
             

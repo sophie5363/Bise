@@ -26,7 +26,7 @@ extension DatabaseManager {
 
     /// Returns dictionary node at child path
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void) {
-        database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -393,13 +393,13 @@ extension DatabaseManager {
                             return nil
                     }
 
-                    let latestMmessageObject = LatestMessage(date: date,
-                                                             text: message,
-                                                             isRead: isRead)
+                    let latestMessageObject = LatestMessage(date: date,
+                                                            text: message,
+                                                            isRead: isRead)
                     return Conversation(id: conversationId,
                                         name: name,
                                         otherUserEmail: otherUserEmail,
-                                        latestMessage: latestMmessageObject)
+                                        latestMessage: latestMessageObject)
                 })
 
                 completion(.success(conversations))

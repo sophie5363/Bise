@@ -67,6 +67,7 @@ class ConversationsViewController: UIViewController {
         print("starting conversation fetch...")
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        
         DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
@@ -82,7 +83,7 @@ class ConversationsViewController: UIViewController {
                 }
                 
 
-            case . failure(let error):
+            case .failure(let error):
                 print("failed to get convos: \(error)")
             }
         })

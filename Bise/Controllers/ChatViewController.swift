@@ -122,8 +122,6 @@ class ChatViewController: MessagesViewController {
                         if shouldScrollToBottom {
                             self?.messagesCollectionView.scrollToLastItem()
                         }
-                        
-                        self?.messagesCollectionView.reloadDataAndKeepOffset()
                     }
                 case .failure(let error):
                     print("failed to get messages: \(error)")
