@@ -26,6 +26,7 @@
 		C02DEF78261E2D2100A03F22 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEF77261E2D2100A03F22 /* ConversationTableViewCell.swift */; };
 		C04A810E260B949700AA1D85 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04A810D260B949700AA1D85 /* ChatViewController.swift */; };
 		C098CFFA260D25F300C08939 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098CFF9260D25F300C08939 /* StorageManager.swift */; };
+		C0A1738D2647D23100FEC3B4 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1738C2647D23100FEC3B4 /* NewConversationCell.swift */; };
 		C0EB2C642614E59B00B0B031 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		C02DEF77261E2D2100A03F22 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		C04A810D260B949700AA1D85 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C098CFF9260D25F300C08939 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		C0A1738C2647D23100FEC3B4 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		C0B04334260A8A3B004297FA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 				C02A6E8625F3A52F000C55DB /* Storyboards */,
 				C02A6E7525F3A2F4000C55DB /* Assets.xcassets */,
 				C02DEF77261E2D2100A03F22 /* ConversationTableViewCell.swift */,
+				C0A1738C2647D23100FEC3B4 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02A6E8925F3A6AC000C55DB /* LoginViewController.swift in Sources */,
+				C0A1738D2647D23100FEC3B4 /* NewConversationCell.swift in Sources */,
 				C0190BC125F6D92A0075AA3E /* DatabaseManager.swift in Sources */,
 				C02A6E8D25F3A6BD000C55DB /* RegisterViewController.swift in Sources */,
 				C02A6E9825F3A76B000C55DB /* NewConversationViewController.swift in Sources */,
