@@ -11,17 +11,9 @@ import FBSDKLoginKit
 import GoogleSignIn
 import SDWebImage
 
-enum ProfileViewModelType {
-    case info, logout
-}
 
-struct ProfileViewModel {
-    let viewModelType: ProfileViewModelType
-    let title: String
-    let handler: (() -> Void)?
-}
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -41,19 +33,22 @@ class ProfileViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .logout,title: "Log Out", handler: { [weak self] in
             
             guard let strongSelf = self else {
-                
+                return
             }
+            
+            
             
             let actionSheet = UIAlertController(title: "",
                                                 message: "",
                                                 preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction(title: "Se déconnecter",
-                                                style: .destructive,
-                                                handler: { [weak self] _ in
-                                                    
-                                                    guard let strongSelf = self else {
-                                                        return
-                                                    }
+            actionSheet.addAction(UIAlertAction(title: "Se déconnecter", style: .destructive, handler: { [weak self] _ in
+                
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                UserDefaults.standard.setValue(nil, forKey: "email")
+                UserDefaults.standard.setValue(nil, forKey: "name")
                                                     
                                                     // Log out Facebook
                                                     FBSDKLoginKit.LoginManager().logOut()
@@ -168,12 +163,11 @@ class ProfileTableViewCell: UITableViewCell {
         
         switch viewModel.viewModelType {
         case .info :
-            self.textLabel?.textAlignment = .left
-            self.selectionStyle = .none
+            textLabel?.textAlignment = .left
+            selectionStyle = .none
         case .logout:
-            
-            self.textLabel?.textColor = .red
-            self.textLabel?.textAlignment = .center
+            textLabel?.textColor = .red
+            textLabel?.textAlignment = .center
         }
     }
     

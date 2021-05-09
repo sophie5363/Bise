@@ -8,25 +8,30 @@
 import Foundation
 import FirebaseDatabase
 
+
+/// Manager object to read and write data to real time firebase database
 final class DatabaseManager {
     
-    static let shared = DatabaseManager()
+    /// shared instance of class
+    public let shared = DatabaseManager()
     
     private let database = Database.database().reference()
+    
+    private init() {}
     
     static func safeEmail(emailAddress: String) -> String {
         var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
+   
 }
 
 extension DatabaseManager {
 
     /// Returns dictionary node at child path
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void) {
-        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+        database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -41,6 +46,10 @@ extension DatabaseManager {
 
 extension DatabaseManager {
     
+    /// Checks if user exists for given email
+    /// Parameter
+    /// - `email`:        Target email to be checked
+    /// - `completion`:   Async closure to return with result
     public func userExists(with email: String,
                            completion: @escaping ((Bool) -> Void)) {
         
@@ -62,18 +71,20 @@ extension DatabaseManager {
         database.child(user.safeEmail).setValue([
             "prénom": user.firstName,
             "nom" : user.lastName,
-        ], withCompletionBlock: { error, _ in
+        ], withCompletionBlock: { [ weak self] error, _ in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            
             guard error == nil else {
                 print("failed to write to database")
                 completion(false)
                 return
             }
-            
-            
-            
-            
-            
-            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+
+            strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String: String]] {
                     //append to user dictionary
                     let newElement = [
@@ -82,7 +93,7 @@ extension DatabaseManager {
                     ]
                     usersCollection.append(newElement)
                     
-                    self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -100,7 +111,7 @@ extension DatabaseManager {
                         ]
                     ]
                     
-                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -115,6 +126,7 @@ extension DatabaseManager {
         
     }
     
+    /// gets all users from database
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value as? [[String: String]] else {
@@ -128,6 +140,13 @@ extension DatabaseManager {
     
     public enum DatabaseError: Error {
         case failedToFetch
+        
+        public var localizedDescription: String {
+            switch self {
+            case .failedToFetch:
+            return "This means blah failed"
+            }
+        }
     }
 }
 

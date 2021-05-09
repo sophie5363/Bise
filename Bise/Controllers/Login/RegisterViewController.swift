@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-class RegisterViewController: UIViewController, UINavigationControllerDelegate {
+final class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -224,6 +224,10 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
                     print("error creating user")
                     return
                 }
+                
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
+                
                 
                 let biseUser = BiseUser(firstName: firstName,
                                         lastName: lastName,
