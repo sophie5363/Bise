@@ -13,7 +13,6 @@ import JGProgressHUD
 /// Controller that show list of conversations
 final  class ConversationsViewController: UIViewController {
     
-    
     private let spinner = JGProgressHUD(style: .dark)
     
     private var conversations = [Conversation]()
@@ -42,11 +41,11 @@ final  class ConversationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
-                                                            target: self,
-                                                            action: #selector(didTapComposeButton))
+                            target: self,
+                            action: #selector(didTapComposeButton))
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
-        setupTableView():
+        setupTableView()
         startListeningForConversations()
         
         loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
@@ -61,46 +60,42 @@ final  class ConversationsViewController: UIViewController {
         
     }
     
-    private func startListeningForConversations(){
-        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
-            return
-        }
-        
-        if let observer = loginObserver {
-            NotificationCenter.default.removeObserver(observer)
-        }
-        
-        
-        print("starting conversation fetch...")
-        
-        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-        
-        DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
-        switch result {
-        case .success(let conversations):
-            print("successfully got conversations models")
-            guard !conversations.isEmpty else {
-                self?.tableView.isHidden = true
-                self?.noConversationsLabel.isHidden = false
+    private func startListeningForConversations() {
+            guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
                 return
-        }
-        
-                self?.noConversationsLabel.isHidden = true
-                self?.tableView.isHidden = false
-                self?.conversations = conversations
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-                
-
-            case .failure(let error):
-                self?.tableView.isHidden = true
-                self?.noConversationsLabel.isHidden = false
-                print("failed to get convos: \(error)")
             }
-        })
-    }
+
+            if let observer = loginObserver {
+                NotificationCenter.default.removeObserver(observer)
+            }
+
+            print("starting conversation fetch...")
+
+            let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+
+            DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+                switch result {
+                case .success(let conversations):
+                    print("successfully got conversation models")
+                    guard !conversations.isEmpty else {
+                        self?.tableView.isHidden = true
+                        self?.noConversationsLabel.isHidden = false
+                        return
+                    }
+                    self?.noConversationsLabel.isHidden = true
+                    self?.tableView.isHidden = false
+                    self?.conversations = conversations
+
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    self?.tableView.isHidden = true
+                    self?.noConversationsLabel.isHidden = false
+                    print("failed to get convos: \(error)")
+                }
+            })
+        }
     
     @objc func didTapComposeButton(){
         let vc = NewConversationViewController()
