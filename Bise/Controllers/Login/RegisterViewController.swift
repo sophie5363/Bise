@@ -41,7 +41,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         field.placeholder = "Adresse email..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0  ))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         field.placeholder = "Prénom..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0  ))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -71,7 +71,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         field.placeholder = "Nom..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0  ))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -86,7 +86,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         field.placeholder = "Mot de passe..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0  ))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         field.isSecureTextEntry = true
         return field
     }()
@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Créer un compte"
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
                                                             style: .done,
