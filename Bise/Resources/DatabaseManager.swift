@@ -249,7 +249,7 @@ extension DatabaseManager {
                 if var conversations = snapshot.value as? [[String: Any?]] {
                     // append
                     conversations.append(recipient_newConversationData)
-                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversationId)
+                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversations)
                 }
                 else{
                     //create
