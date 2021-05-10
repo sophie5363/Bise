@@ -232,6 +232,10 @@ final class RegisterViewController: UIViewController, UINavigationControllerDele
                 let biseUser = BiseUser(firstName: firstName,
                                         lastName: lastName,
                                         emailAddress: email)
+                
+                print("bise user : \(biseUser.emailAddress)")
+                
+                
                 DatabaseManager.shared.insertUser(with: biseUser, completion: {success in
                     if success{
                         //upload image

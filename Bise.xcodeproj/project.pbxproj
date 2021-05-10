@@ -29,7 +29,7 @@
 		C09FC109264856AD00FBDE4B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC108264856AD00FBDE4B /* ProfileViewModel.swift */; };
 		C0A1738D2647D23100FEC3B4 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1738C2647D23100FEC3B4 /* NewConversationCell.swift */; };
 		C0EB2C642614E59B00B0B031 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */; };
-		F9DB929726490BC500A9E8FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DB929626490BC500A9E8FC /* GoogleService-Info.plist */; };
+		F9B385742649425A00A8D346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9B385732649425900A8D346 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +59,7 @@
 		C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E61C8A34CD241B1A788305F7 /* Pods_Bise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F958F7CA264912A6003EA1DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9DB929626490BC500A9E8FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9B385732649425900A8D346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 		C02A6E6B25F3A2F4000C55DB /* Bise */ = {
 			isa = PBXGroup;
 			children = (
+				F9B385732649425900A8D346 /* GoogleService-Info.plist */,
 				F958F7CA264912A6003EA1DA /* Info.plist */,
-				F9DB929626490BC500A9E8FC /* GoogleService-Info.plist */,
 				C02A6E8525F3A4F6000C55DB /* Resources */,
 				C02A6E8425F3A4E8000C55DB /* ViewModels */,
 				C02A6E8325F3A4D9000C55DB /* Models */,
@@ -257,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02A6E7925F3A2F4000C55DB /* LaunchScreen.storyboard in Resources */,
-				F9DB929726490BC500A9E8FC /* GoogleService-Info.plist in Resources */,
+				F9B385742649425A00A8D346 /* GoogleService-Info.plist in Resources */,
 				C02A6E7625F3A2F4000C55DB /* Assets.xcassets in Resources */,
 				C02A6E7425F3A2F4000C55DB /* Main.storyboard in Resources */,
 			);

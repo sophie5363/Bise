@@ -7,32 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3226345B-D48C-44E8-A73E-519E99936B74"
-            shouldBeEnabled = "No"
+            uuid = "729EFB1B-D267-4FF0-ABDC-B69CD8957988"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bise/Controllers/ConversationsViewController.swift"
+            filePath = "Bise/Controllers/Login/RegisterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "registerButtonTapped()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "729EFB1B-D267-4FF0-ABDC-B69CD8957988 - bb9c028acff8e85e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bise.RegisterViewController.(registerButtonTapped in _42FF3D73FCE9549751308A322046B70D)() -&gt; ()"
+                  moduleName = "Bise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julien/Documents/Dossier%20Projet/XcodeProject/Bise/Bise/Controllers/Login/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "1804">
+               </Location>
+               <Location
+                  uuid = "729EFB1B-D267-4FF0-ABDC-B69CD8957988 - 3dcfe3ea317f9546"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in Bise.RegisterViewController.(registerButtonTapped in _42FF3D73FCE9549751308A322046B70D)() -&gt; ()"
+                  moduleName = "Bise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julien/Documents/Dossier%20Projet/XcodeProject/Bise/Bise/Controllers/Login/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "460">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F11B0174-308E-49C7-A877-874E3D432E0F"
+            uuid = "B34AD4BD-D974-417E-8E69-77D22C68D11E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bise/Controllers/ConversationsViewController.swift"
+            filePath = "Bise/Controllers/Login/RegisterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "registerButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B34AD4BD-D974-417E-8E69-77D22C68D11E - 3dcfe3ea317f95e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in Bise.RegisterViewController.(registerButtonTapped in _42FF3D73FCE9549751308A322046B70D)() -&gt; ()"
+                  moduleName = "Bise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julien/Documents/Dossier%20Projet/XcodeProject/Bise/Bise/Controllers/Login/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "744">
+               </Location>
+               <Location
+                  uuid = "B34AD4BD-D974-417E-8E69-77D22C68D11E - 48d2cb8e2c4b687"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Bool) -&gt; () in Bise.RegisterViewController.(registerButtonTapped in _42FF3D73FCE9549751308A322046B70D)() -&gt; ()"
+                  moduleName = "Bise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julien/Documents/Dossier%20Projet/XcodeProject/Bise/Bise/Controllers/Login/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61064570-B5F3-4483-95EC-3D0E345CC59A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bise/Controllers/Login/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "registerButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
