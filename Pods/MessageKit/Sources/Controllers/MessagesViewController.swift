@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2020 MessageKit
+ Copyright (c) 2017-2019 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,6 @@
  SOFTWARE.
  */
 
-import Foundation
 import UIKit
 import InputBarAccessoryView
 
@@ -49,7 +48,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     ///
     /// The default value of this property is `false`.
     /// NOTE: This is related to `scrollToBottom` whereas the above flag is related to `scrollToLastItem` - check each function for differences
-    @available(*, deprecated, message: "Control scrolling to bottom on keyboardBeginEditing by using scrollsToLastItemOnKeyboardBeginsEditing instead", renamed: "scrollsToLastItemOnKeyboardBeginsEditing")
     open var scrollsToBottomOnKeyboardBeginsEditing: Bool = false
     
     /// A Boolean value that determines whether the `MessagesCollectionView`
@@ -126,13 +124,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
         addObservers()
     }
     
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if !isFirstLayout {
-            addKeyboardObservers()
-        }
-    }
-    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         isMessagesControllerBeingDismissed = false
@@ -141,7 +132,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isMessagesControllerBeingDismissed = true
-        removeKeyboardObservers()
     }
     
     open override func viewDidDisappear(_ animated: Bool) {
@@ -166,6 +156,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     // MARK: - Initializers
 
     deinit {
+        removeKeyboardObservers()
         removeMenuControllerObservers()
         removeObservers()
         clearMemoryCache()
@@ -223,12 +214,10 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     private func setupDefaults() {
         extendedLayoutIncludesOpaqueBars = true
         view.backgroundColor = .collectionViewBackground
+        messagesCollectionView.contentInsetAdjustmentBehavior = .never
         messagesCollectionView.keyboardDismissMode = .interactive
         messagesCollectionView.alwaysBounceVertical = true
         messagesCollectionView.backgroundColor = .collectionViewBackground
-        if #available(iOS 13.0, *) {
-            messagesCollectionView.automaticallyAdjustsScrollIndicatorInsets = false
-        }
     }
 
     private func setupDelegates() {
@@ -243,7 +232,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     private func setupConstraints() {
         messagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor)
+        let top = messagesCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         let bottom = messagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)

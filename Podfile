@@ -28,7 +28,7 @@ target 'Bise' do
 
 
 
-  pod 'MessageKit'
+  pod 'MessageKit', '~> 3.3.0-M1'
 
   pod 'JGProgressHUD'
 

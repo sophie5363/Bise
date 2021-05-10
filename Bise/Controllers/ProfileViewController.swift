@@ -94,17 +94,18 @@ final class ProfileViewController: UIViewController {
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         let fileName = safeEmail + "_profile_picture.png"
-        let path = "images"+fileName
+        let path = "images/"+fileName
+        
+        print(path)
+        
+//        "images/\(model.email)_profile_picture.png"
         
         let headerView = UIView(frame: CGRect(x: 0,
                                               y: 0,
                                               width: self.view.width,
                                               height: 300))
+        
         headerView.backgroundColor = .systemOrange
-                
-        // Init image
-        // active constraints -> imageView.translatesAutoresizingMaskIntoConstraints = false
-        // add constraints : https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ProgrammaticallyCreatingConstraints.html
                 
         let imageView = UIImageView(frame: CGRect(x: (headerView.width-150) / 2,
                                                   y: 75,
@@ -119,14 +120,13 @@ final class ProfileViewController: UIViewController {
         headerView.addSubview(imageView)
         
         StorageManager.shared.downloadURL(for: path, completion: { result in
-            switch result {
-            case .success(let url):
-                imageView.sd_setImage(with: url, completed: nil)
-            case .failure(let error):
-                print("Failed download URL at \(path) with \(error)")
-                
-            }
-        })
+                    switch result {
+                    case .success(let url):
+                        imageView.sd_setImage(with: url, completed: nil)
+                    case .failure(let error):
+                        print("Failed to get download url: \(error)")
+                    }
+                })
         
         return headerView
     }

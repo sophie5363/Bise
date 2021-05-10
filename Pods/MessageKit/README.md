@@ -10,6 +10,7 @@
 [![Danger](https://github.com/MessageKit/MessageKit/workflows/Danger/badge.svg)](https://github.com/MessageKit/MessageKit/actions?query=workflow%3A%22Danger%22)
 
 [![codecov](https://codecov.io/gh/MessageKit/MessageKit/branch/master/graph/badge.svg)](https://codecov.io/gh/MessageKit/MessageKit)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 <a href="https://swift.org">
 <img src="https://img.shields.io/badge/Swift-5-green.svg" alt="Swift" />
 </a>
@@ -17,7 +18,7 @@
 <img src="https://cocoapod-badges.herokuapp.com/v/MessageKit/badge.png" alt="CocoaPods">
 </a>
 <a href="https://developer.apple.com/xcode">
-<img src="https://img.shields.io/badge/Xcode-12-blue.svg" alt="Xcode">
+<img src="https://img.shields.io/badge/Xcode-11-blue.svg" alt="Xcode">
 </a>
 <a href="https://opensource.org/licenses/MIT">
 <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="MIT">
@@ -47,15 +48,8 @@ See [VISION.md](https://github.com/MessageKit/MessageKit/blob/master/VISION.md) 
 ### [CocoaPods](https://cocoapods.org/) **Recommended**
 
 ```ruby
-# Swift 5.3
-pod 'MessageKit'
-```
-
-> For Swift 5.0 use version 3.3.0
-
-```ruby
 # Swift 5.0
-pod 'MessageKit', '~> 3.3.0'
+pod 'MessageKit'
 ```
 
 > For Swift 4.2 use version 3.0.0
@@ -65,24 +59,36 @@ pod 'MessageKit', '~> 3.3.0'
 pod 'MessageKit', '~> 3.0.0'
 ```
 
-### [Swift Package Manager](https://swift.org/package-manager/)
+### [Carthage](https://github.com/Carthage/Carthage)
+
+To integrate MessageKit using Carthage, add the following to your `Cartfile`:
+
+```
+github "MessageKit/MessageKit"
+```
+
+### [Swift Package Manager](https://swift.org/package-manager/) **Beta** ⚠️
 
 Swift 5.3 in Xcode 12 [added support](https://github.com/apple/swift-evolution/blob/master/proposals/0271-package-manager-resources.md) for assets in Swift Packages.
-You can [just add](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) MessageKit package to your project by entering it's repository URL
+So if you're using Xcode 12, you can [just add](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) MessageKit package to your project by entering it's repository URL
 
 ```
 https://github.com/MessageKit/MessageKit
 ```
-Older versions of Swift and XCode don't support MessageKit via SPM.
+
+If you're using an older version of Xcode (mainly Xcode 11), it's still possible to use MessageKit as Swift package, but you will be limited to only `custom` cell types as any other cell type will crash your application ❗️
+After adding MessageKit's repository URL to your project, point the branch to:
+
+```
+spm-5_2
+```
 
 ### [Manual](https://github.com/MessageKit/MessageKit/blob/master/Documentation/MANUAL_INSTALLATION.md)
 
 ## Requirements
 
-- **iOS 12** or later
-- **Swift 5.3** or later
-
-> For iOS 11 please use version 3.3.0
+- **iOS 11** or later
+- **Swift 5.0** or later
 
 > For iOS 9 and iOS 10 please use version 3.1.0
 
@@ -188,9 +194,6 @@ Add your app to the list of apps using this library and make a pull request.
 - [SmooveText](https://apps.apple.com/np/app/smoove-text/id1362792811)
 - [COYO Engage](https://apps.apple.com/app/coyo-engage/id1341588804)
 - [HitchPin](https://www.hitchpin.com)
-- [Charge Running](https://apps.apple.com/app/charge-running-live-coaching/id1204578360)
-- [HER](https://apps.apple.com/us/app/id573328837)
-- [Girlfriend Plus](https://apps.apple.com/us/app/girlfriend-plus/id1011637655)
 
 _Please provide attribution, it is greatly appreciated._
 
@@ -200,8 +203,6 @@ _Please provide attribution, it is greatly appreciated._
 - [@nathantannar4](https://github.com/nathantannar4), Nathan Tannar
 - [@zhongwuzw](https://github.com/zhongwuzw), Wu Zhong
 - [@austinwright](https://github.com/austinwright), Austin Wright
-- [@kaspik](https://github.com/kaspik), Jakub Kaspar
-- [@martinpucik](https://github.com/martinpucik), Martin Pucik
 
 ## Thanks
 
