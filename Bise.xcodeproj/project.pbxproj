@@ -494,14 +494,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZ8595QDF7;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Bise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.Bise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -516,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GZ8595QDF7;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Bise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -524,7 +524,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.Bise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
