@@ -7,9 +7,11 @@
 
 import UIKit
 import Firebase
-import FBSDKLoginKit
+import FacebookLogin
+import FacebookCore
 import JGProgressHUD
 import GoogleSignIn
+
 
 final class LoginViewController: UIViewController {
     
@@ -267,7 +269,7 @@ extension LoginViewController: LoginButtonDelegate {
             return
         }
         
-        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
+        let facebookRequest = GraphRequest(graphPath: "me",
                                                          parameters: ["fields": "email, first_name, last_name, picture.type(large)"],
                                                          tokenString: token,
                                                          version: nil,

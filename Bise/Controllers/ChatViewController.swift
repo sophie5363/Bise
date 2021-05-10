@@ -143,7 +143,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             // append to existing conversation data
             DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: mmessage, completion: { [weak self] success in
                 if success {
-                    self?.messageInputBar.inputTextView.text = nil
+                    self?.messageInputBar.inputTextView.text = ""
+                    self?.messagesCollectionView.reloadDataAndKeepOffset()
                     print("message sent")
                 }
                 else {

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '14.0'
+platform :ios, '14.1'
 install! 'cocoapods', :disable_input_output_paths => true
 
 target 'Bise' do
@@ -8,17 +8,18 @@ target 'Bise' do
 
 # Firebase 
 
-  pod 'Firebase/Core', '7.2-M1'
+  pod 'Firebase/Core', '7.2.0-M1'
 
-  pod 'Firebase/Auth', '7.2-M1'
+  pod 'Firebase/Auth', '7.2.0-M1'
 
-  pod 'Firebase/Database', '7.2-M1'
+  pod 'Firebase/Database', '7.2.0-M1'
 
-  pod 'Firebase/Storage'
+  pod 'Firebase/Storage', '7.2.0-M1'
 
 # Facebook
 
-  pod 'FBSDKLoginKit'
+  pod 'FacebookLogin'
+  pod 'FacebookCore'
 
 # Google Sign In
 
@@ -30,8 +31,6 @@ target 'Bise' do
   pod 'MessageKit'
 
   pod 'JGProgressHUD'
-
-  pod 'RealmSwift'
 
   pod 'SDWebImage'
 
