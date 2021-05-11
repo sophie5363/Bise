@@ -71,6 +71,7 @@ extension DatabaseManager {
     /// Insert new user to database
     public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
+//                                                          database.child("Utilisateur").child(user.safeEmail).setValue([
             "prénom": user.firstName,
             "nom" : user.lastName,
         ], withCompletionBlock: { [ weak self] error, _ in
@@ -86,7 +87,7 @@ extension DatabaseManager {
                 return
             }
             
-            strongSelf.database.child("Utilisateur").observeSingleEvent(of: .value, with: { snapshot in
+            strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String: String]] {
                     //append to user dictionary
                     let newElement = [
@@ -95,7 +96,7 @@ extension DatabaseManager {
                     ]
                     usersCollection.append(newElement)
                     
-                    strongSelf.database.child("Utilisateur").setValue(usersCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -113,7 +114,7 @@ extension DatabaseManager {
                         ]
                     ]
                     
-                    strongSelf.database.child("Utilisateur").setValue(newCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -130,7 +131,7 @@ extension DatabaseManager {
     
     /// gets all users from database
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
-        database.child("Utilisateur").observeSingleEvent(of: .value, with: { snapshot in
+        database.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value as? [[String: String]] else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
