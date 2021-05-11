@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )-> Bool {
         
         FirebaseApp.configure()
-        
-        
-        
+  
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions

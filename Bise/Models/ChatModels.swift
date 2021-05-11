@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 import MessageKit
 
 struct Message: MessageType {
@@ -18,7 +19,6 @@ struct Message: MessageType {
 extension MessageKind {
     var messageKindString: String {
         switch self {
-        
         case .text(_):
             return "text"
         case .attributedText(_):
@@ -35,10 +35,10 @@ extension MessageKind {
             return "audio"
         case .contact(_):
             return "contact"
-        case .linkPreview(_):
-            return "link_preview"
         case .custom(_):
             return "custom"
+        case .linkPreview(_):
+            return "link"
         }
     }
 }
@@ -49,3 +49,14 @@ struct Sender: SenderType {
     public var displayName: String
 }
 
+struct Media: MediaItem {
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+}
+
+struct Location: LocationItem {
+    var location: CLLocation
+    var size: CGSize
+}

@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseDatabase
+import MessageKit
+import CoreLocation
 
 
 /// Manager object to read and write data to real time firebase database
@@ -422,41 +424,82 @@ extension DatabaseManager {
     }
     
     //Gets messages for a given conversation
-    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void){
-        database.child("\(id)/messages").observe(.value, with: { snapshot in
-            guard let value = snapshot.value as? [[String: Any]] else {
-                completion(.failure(DatabaseError.failedToFetch))
-                return
-            }
-            
-            let messages: [Message] = value.compactMap({ dictionary in
-                guard let name = dictionary["name"] as? String,
-                      let isRead = dictionary["is_read"] as? Bool,
-                      let messageID = dictionary["id"] as? String,
-                      let content = dictionary["content"] as? String,
-                      let senderEmail = dictionary["sender_email"] as? String,
-                      let type = dictionary["type"] as? String,
-                      let dateString = dictionary["date"] as? String,
-                      let date = ChatViewController.dateFormatter.date(from: dateString)else {
-                    return nil
-                }
-                
-                let sender = Sender(photoURL: "",
-                                    senderId: senderEmail,
-                                    displayName: name)
-                
-                
-                return Message(sender: sender,
-                               messageId: messageID,
-                               sentDate: date,
-                               kind: .text(content))
-                
-            })
-            
-            completion(.success(messages))
-            
-        })
-    }
+    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
+         database.child("\(id)/messages").observe(.value, with: { snapshot in
+             guard let value = snapshot.value as? [[String: Any]] else{
+                 completion(.failure(DatabaseError.failedToFetch))
+                 return
+             }
+
+             let messages: [Message] = value.compactMap({ dictionary in
+                 guard let name = dictionary["name"] as? String,
+                     let isRead = dictionary["is_read"] as? Bool,
+                     let messageID = dictionary["id"] as? String,
+                     let content = dictionary["content"] as? String,
+                     let senderEmail = dictionary["sender_email"] as? String,
+                     let type = dictionary["type"] as? String,
+                     let dateString = dictionary["date"] as? String,
+                     let date = ChatViewController.dateFormatter.date(from: dateString)else {
+                         return nil
+                 }
+                 var kind: MessageKind?
+                 if type == "photo" {
+                     // photo
+                     guard let imageUrl = URL(string: content),
+                     let placeHolder = UIImage(systemName: "plus") else {
+                         return nil
+                     }
+                     let media = Media(url: imageUrl,
+                                       image: nil,
+                                       placeholderImage: placeHolder,
+                                       size: CGSize(width: 300, height: 300))
+                     kind = .photo(media)
+                 }
+                 else if type == "video" {
+                     // photo
+                     guard let videoUrl = URL(string: content),
+                         let placeHolder = UIImage(named: "video_placeholder") else {
+                             return nil
+                     }
+                     
+                     let media = Media(url: videoUrl,
+                                       image: nil,
+                                       placeholderImage: placeHolder,
+                                       size: CGSize(width: 300, height: 300))
+                     kind = .video(media)
+                 }
+                 else if type == "location" {
+                     let locationComponents = content.components(separatedBy: ",")
+                     guard let longitude = Double(locationComponents[0]),
+                         let latitude = Double(locationComponents[1]) else {
+                         return nil
+                     }
+                     print("Rendering location; long=\(longitude) | lat=\(latitude)")
+                     let location = Location(location: CLLocation(latitude: latitude, longitude: longitude),
+                                             size: CGSize(width: 300, height: 300))
+                     kind = .location(location)
+                 }
+                 else {
+                     kind = .text(content)
+                 }
+
+                 guard let finalKind = kind else {
+                     return nil
+                 }
+
+                 let sender = Sender(photoURL: "",
+                                     senderId: senderEmail,
+                                     displayName: name)
+
+                 return Message(sender: sender,
+                                messageId: messageID,
+                                sentDate: date,
+                                kind: finalKind)
+             })
+
+             completion(.success(messages))
+         })
+     }
     
     
     ///Send a message with target conversation and message
@@ -485,30 +528,36 @@ extension DatabaseManager {
             let dateString = ChatViewController.dateFormatter.string(from: messageDate)
             
             var message = ""
-            
-            switch newMessage.kind {
-            
-            case .text(let messageText):
-                message = messageText
-            case .attributedText(_):
-                break
-            case .photo(_):
-                break
-            case .video(_):
-                break
-            case .location(_):
-                break
-            case .emoji(_):
-                break
-            case .audio(_):
-                break
-            case .contact(_):
-                break
-            case .linkPreview(_):
-                break
-            case .custom(_):
-                break
-            }
+                       switch newMessage.kind {
+                       case .text(let messageText):
+                           message = messageText
+                       case .attributedText(_):
+                           break
+                       case .photo(let mediaItem):
+                           if let targetUrlString = mediaItem.url?.absoluteString {
+                               message = targetUrlString
+                           }
+                           break
+                       case .video(let mediaItem):
+                           if let targetUrlString = mediaItem.url?.absoluteString {
+                               message = targetUrlString
+                           }
+                           break
+                       case .location(let locationData):
+                           let location = locationData.location
+                           message = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
+                           break
+                       case .emoji(_):
+                           break
+                       case .audio(_):
+                           break
+                       case .contact(_):
+                           break
+                       case .custom(_):
+                           break
+                       case .linkPreview(_):
+                           break
+                       }
             
             guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
                 completion(false)
