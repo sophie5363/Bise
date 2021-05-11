@@ -37,7 +37,7 @@ final class NewConversationViewController: UIViewController {
     private let noResultsLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
-        label.text = "No Results"
+        label.text = "Pas de résultat"
         label.textAlignment = .center
         label.textColor = .systemOrange
         label.font = .systemFont(ofSize: 21, weight: .medium)
