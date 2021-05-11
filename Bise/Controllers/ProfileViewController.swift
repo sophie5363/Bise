@@ -25,12 +25,12 @@ final class ProfileViewController: UIViewController {
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         
         data.append(ProfileViewModel(viewModelType: .info,
-                                     title: "Name: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name" )",
+                                     title: "Nom: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name" )",
                                      handler: nil))
         data.append(ProfileViewModel(viewModelType: .info,
                                      title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email" )",
                                      handler: nil))
-        data.append(ProfileViewModel(viewModelType: .logout,title: "Log Out", handler: { [weak self] in
+        data.append(ProfileViewModel(viewModelType: .logout,title: "Se déconnecter", handler: { [weak self] in
             
             guard let strongSelf = self else {
                 return
