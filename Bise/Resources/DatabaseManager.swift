@@ -86,7 +86,7 @@ extension DatabaseManager {
                 return
             }
             
-            strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            strongSelf.database.child("Utilisateur").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String: String]] {
                     //append to user dictionary
                     let newElement = [
@@ -95,7 +95,7 @@ extension DatabaseManager {
                     ]
                     usersCollection.append(newElement)
                     
-                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("Utilisateur").setValue(usersCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -113,7 +113,7 @@ extension DatabaseManager {
                         ]
                     ]
                     
-                    strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("Utilisateur").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
