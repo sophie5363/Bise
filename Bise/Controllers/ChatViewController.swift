@@ -408,9 +408,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         let safeCurrentEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
 
-        let dateString = Self.dateFormatter.string(from: Date())
-//        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)"
-        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
+//        let dateString = Self.dateFormatter.string(from: Date())
+        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)"
+//        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
         
         print("created message id: \(newIdentifier)")
         
@@ -445,7 +445,7 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         let sender = message.sender
         if sender.senderId == selfSender?.senderId {
             // our message that we've sent
-            return .link
+            return .systemOrange
         }
         
         return .secondarySystemBackground

@@ -25,17 +25,21 @@ final class ProfileViewController: UIViewController {
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         
         data.append(ProfileViewModel(viewModelType: .info,
-                                     title: "Nom: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name" )",
+                                     title: "Nom: \(UserDefaults.standard.value(forKey: "name") as? String ?? "Pas de nom" )",
                                      handler: nil))
         data.append(ProfileViewModel(viewModelType: .info,
-                                     title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email" )",
+                                     title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "Pas de mail" )",
                                      handler: nil))
         data.append(ProfileViewModel(viewModelType: .logout,title: "Se déconnecter", handler: { [weak self] in
             
             guard let strongSelf = self else {
                 return
             }
-            
+//        data.append(ProfileViewModel(viewModelType: .delete,title: "Supprimer mon compte", handler: { [weak self] in
+//                
+//            guard let strongSelf = self else {
+//                return
+//            }
             
             
             let actionSheet = UIAlertController(title: "",
@@ -163,10 +167,13 @@ class ProfileTableViewCell: UITableViewCell {
         
         switch viewModel.viewModelType {
         case .info :
-            textLabel?.textAlignment = .left
+            textLabel?.textAlignment = .center
             selectionStyle = .none
         case .logout:
             textLabel?.textColor = .red
+            textLabel?.textAlignment = .center
+        case .delete:
+            textLabel?.textColor = .systemGray
             textLabel?.textAlignment = .center
         }
     }

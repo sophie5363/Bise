@@ -87,22 +87,26 @@ extension DatabaseManager {
             }
             
             strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
-                if var usersCollection = snapshot.value as? [[String: String]] {
+                let newElement = [
+                    "name": user.firstName + " " + user.lastName,
+                    "email": user.safeEmail
+                ]
+                
+                strongSelf.database.child("users").childByAutoId().setValue(newElement, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    
+                    completion(true)
+                })
+                
+                /*if var usersCollection = snapshot.value as? [[String: String]] {
                     //append to user dictionary
-                    let newElement = [
-                        "name": user.firstName + " " + user.lastName,
-                        "email": user.safeEmail
-                    ]
+                    
                     usersCollection.append(newElement)
                     
-                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
-                        guard error == nil else {
-                            completion(false)
-                            return
-                        }
-                        
-                        completion(true)
-                    })
+                
                 }
                 else {
                     //create that array
@@ -121,7 +125,7 @@ extension DatabaseManager {
                         
                         completion(true)
                     })
-                }
+                } */
             })
             
         })
@@ -198,7 +202,7 @@ extension DatabaseManager {
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
         
-        let ref = database.child("Utilisateur").child("\(safeEmail)")
+        let ref = database.child("Utilisateur").child(safeEmail)
         
         ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard var userNode = snapshot.value as? [String: Any] else {
@@ -393,7 +397,8 @@ extension DatabaseManager {
     
     /// Fetches and returns all conversations for the user with passed in email
     public func getAllConversations(for email: String, completion: @escaping (Result<[Conversation], Error>) -> Void) {
-        database.child("\(email)/conversations").observe(.value, with: { snapshot in
+        print(email)
+        database.child("Utilisateur/\(email)/conversations").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else{
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -425,7 +430,9 @@ extension DatabaseManager {
     
     //Gets messages for a given conversation
     public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
-         database.child("\(id)/messages").observe(.value, with: { snapshot in
+        print(id)
+        
+        database.child("Conversation/\(id)/message").observe(.value, with: { snapshot in
              guard let value = snapshot.value as? [[String: Any]] else{
                  completion(.failure(DatabaseError.failedToFetch))
                  return
