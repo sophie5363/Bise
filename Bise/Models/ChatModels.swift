@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import MessageKit
 
-struct Message: MessageType {
+struct Message: MessageType {    
     public var sender: SenderType
     public var messageId: String
     public var sentDate: Date

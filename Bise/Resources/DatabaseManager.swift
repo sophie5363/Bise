@@ -70,8 +70,7 @@ extension DatabaseManager {
     
     /// Insert new user to database
     public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void){
-        database.child(user.safeEmail).setValue([
-//                                                          database.child("Utilisateur").child(user.safeEmail).setValue([
+        database.child("Utilisateur").child(user.safeEmail).setValue([
             "prénom": user.firstName,
             "nom" : user.lastName,
         ], withCompletionBlock: { [ weak self] error, _ in
@@ -141,6 +140,8 @@ extension DatabaseManager {
         })
     }
     
+// MARK: - Database Error
+    
     public enum DatabaseError: Error {
         case failedToFetch
         
@@ -195,11 +196,9 @@ extension DatabaseManager {
             return
         }
         
-        
-        
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
         
-        let ref = database.child("\(safeEmail)")
+        let ref = database.child("Utilisateur").child("\(safeEmail)")
         
         ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard var userNode = snapshot.value as? [String: Any] else {
@@ -267,7 +266,7 @@ extension DatabaseManager {
                 if var conversations = snapshot.value as? [[String: Any?]] {
                     // append
                     conversations.append(recipient_newConversationData)
-                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversations)
+                    self?.database.child("\(otherUserEmail)/conversations").childByAutoId().setValue(conversations)
                 }
                 else{
                     //create
@@ -379,9 +378,9 @@ extension DatabaseManager {
             ]
         ]
         
+        print(conversationID)
         
-        
-        database.child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
+        database.child("Conversation").child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
             guard error == nil else {
                 completion(false)
                 return

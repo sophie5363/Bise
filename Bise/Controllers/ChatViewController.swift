@@ -407,8 +407,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         }
         
         let safeCurrentEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
-        
+
         let dateString = Self.dateFormatter.string(from: Date())
+//        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)"
         let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
         
         print("created message id: \(newIdentifier)")
