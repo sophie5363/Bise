@@ -69,67 +69,60 @@ extension DatabaseManager {
     }
     
     /// Insert new user to database
-    public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void){
-        database.child("Utilisateur").child(user.safeEmail).setValue([
-            "prénom": user.firstName,
-            "nom" : user.lastName,
-        ], withCompletionBlock: { [ weak self] error, _ in
-            
+    public func insertUser(with user: BiseUser, completion: @escaping (Bool) -> Void) {
+        database.child(user.safeEmail).setValue([
+            "first_name": user.firstName,
+            "last_name": user.lastName
+        ], withCompletionBlock: { [weak self] error, _ in
+
             guard let strongSelf = self else {
                 return
             }
-            
-            
+
             guard error == nil else {
-                print("failed to write to database")
+                print("failed ot write to database")
                 completion(false)
                 return
             }
-            
+
             strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
-                let newElement = [
-                    "name": user.firstName + " " + user.lastName,
-                    "email": user.safeEmail
-                ]
-                
-                strongSelf.database.child("users").childByAutoId().setValue(newElement, withCompletionBlock: { error, _ in
-                    guard error == nil else {
-                        completion(false)
-                        return
-                    }
-                    
-                    completion(true)
-                })
-                
-                /*if var usersCollection = snapshot.value as? [[String: String]] {
-                    //append to user dictionary
-                    
+                if var usersCollection = snapshot.value as? [[String: String]] {
+                    // append to user dictionary
+                    let newElement = [
+                        "name": user.firstName + " " + user.lastName,
+                        "email": user.safeEmail
+                    ]
                     usersCollection.append(newElement)
-                    
-                
+
+                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+
+                        completion(true)
+                    })
                 }
                 else {
-                    //create that array
+                    // create that array
                     let newCollection: [[String: String]] = [
                         [
                             "name": user.firstName + " " + user.lastName,
                             "email": user.safeEmail
                         ]
                     ]
-                    
+
                     strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
                         }
-                        
+
                         completion(true)
                     })
-                } */
+                }
             })
-            
         })
-        
     }
     
     /// gets all users from database
@@ -202,7 +195,7 @@ extension DatabaseManager {
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
         
-        let ref = database.child("Utilisateur").child(safeEmail)
+        let ref = database.child(safeEmail)
         
         ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard var userNode = snapshot.value as? [String: Any] else {
@@ -384,7 +377,7 @@ extension DatabaseManager {
         
         print(conversationID)
         
-        database.child("Conversation").child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
+        database.child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
             guard error == nil else {
                 completion(false)
                 return
@@ -398,7 +391,7 @@ extension DatabaseManager {
     /// Fetches and returns all conversations for the user with passed in email
     public func getAllConversations(for email: String, completion: @escaping (Result<[Conversation], Error>) -> Void) {
         print(email)
-        database.child("Utilisateur/\(email)/conversations").observe(.value, with: { snapshot in
+        database.child("\(email)/conversations").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else{
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -432,7 +425,7 @@ extension DatabaseManager {
     public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
         print(id)
         
-        database.child("Conversation/\(id)/message").observe(.value, with: { snapshot in
+        database.child("\(id)/message").observe(.value, with: { snapshot in
              guard let value = snapshot.value as? [[String: Any]] else{
                  completion(.failure(DatabaseError.failedToFetch))
                  return
