@@ -514,7 +514,7 @@ extension DatabaseManager {
         
         let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
         
-        database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+        database.child("\(conversation)/message").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard let strongSelf = self else {
                 return
             }
@@ -578,7 +578,7 @@ extension DatabaseManager {
             
             currentMessages.append(newMessageEntry)
             
-            strongSelf.database.child("\(conversation)/messages").setValue(currentMessages) { error, _ in
+            strongSelf.database.child("\(conversation)/message").setValue(currentMessages) { error, _ in
                 guard error == nil else {
                     completion(false)
                     return
