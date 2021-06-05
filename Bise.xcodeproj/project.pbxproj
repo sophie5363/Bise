@@ -505,6 +505,7 @@
 				DEVELOPMENT_TEAM = SW4D3N59DT;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Bise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,6 +528,7 @@
 				DEVELOPMENT_TEAM = SW4D3N59DT;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Bise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
