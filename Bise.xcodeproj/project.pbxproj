@@ -24,6 +24,15 @@
 		C04A810E260B949700AA1D85 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04A810D260B949700AA1D85 /* ChatViewController.swift */; };
 		C05DBEDA264A7D0200DCFCE2 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DBED9264A7D0200DCFCE2 /* LocationPickerViewController.swift */; };
 		C05DBEDD264A7D5800DCFCE2 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DBEDC264A7D5800DCFCE2 /* PhotoViewerViewController.swift */; };
+		C0921F14266BFBFB009C85F0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0921F12266BFBFB009C85F0 /* Interface.storyboard */; };
+		C0921F16266BFBFC009C85F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0921F15266BFBFC009C85F0 /* Assets.xcassets */; };
+		C0921F1D266BFBFC009C85F0 /* Bisewatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C0921F1C266BFBFC009C85F0 /* Bisewatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C0921F22266BFBFC009C85F0 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F21266BFBFC009C85F0 /* InterfaceController.swift */; };
+		C0921F24266BFBFC009C85F0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F23266BFBFC009C85F0 /* ExtensionDelegate.swift */; };
+		C0921F26266BFBFC009C85F0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F25266BFBFC009C85F0 /* NotificationController.swift */; };
+		C0921F28266BFBFC009C85F0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F27266BFBFC009C85F0 /* ComplicationController.swift */; };
+		C0921F2A266BFBFD009C85F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0921F29266BFBFD009C85F0 /* Assets.xcassets */; };
+		C0921F2F266BFBFD009C85F0 /* Bisewatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C0921F10266BFBFB009C85F0 /* Bisewatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C098CFFA260D25F300C08939 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098CFF9260D25F300C08939 /* StorageManager.swift */; };
 		C09FC0FE2648559D00FBDE4B /* ConversationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC0FD2648559D00FBDE4B /* ConversationModels.swift */; };
 		C09FC103264855F700FBDE4B /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC102264855F700FBDE4B /* ChatModels.swift */; };
@@ -33,6 +42,48 @@
 		C0EB2C642614E59B00B0B031 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */; };
 		F9B385742649425A00A8D346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9B385732649425900A8D346 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0921F1E266BFBFC009C85F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02A6E6125F3A2F4000C55DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0921F1B266BFBFC009C85F0;
+			remoteInfo = "Bisewatch Extension";
+		};
+		C0921F2D266BFBFD009C85F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02A6E6125F3A2F4000C55DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0921F0F266BFBFB009C85F0;
+			remoteInfo = Bisewatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C0921F30266BFBFD009C85F0 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C0921F2F266BFBFD009C85F0 /* Bisewatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0921F33266BFBFD009C85F0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C0921F1D266BFBFC009C85F0 /* Bisewatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17AFB2DB6F7DF8BCB4C9A1F4 /* Pods-Bise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bise.release.xcconfig"; path = "Target Support Files/Pods-Bise/Pods-Bise.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +105,18 @@
 		C04A810D260B949700AA1D85 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C05DBED9264A7D0200DCFCE2 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		C05DBEDC264A7D5800DCFCE2 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		C0921F10266BFBFB009C85F0 /* Bisewatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bisewatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0921F13266BFBFB009C85F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C0921F15266BFBFC009C85F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0921F17266BFBFC009C85F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0921F1C266BFBFC009C85F0 /* Bisewatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bisewatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0921F21266BFBFC009C85F0 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C0921F23266BFBFC009C85F0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C0921F25266BFBFC009C85F0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C0921F27266BFBFC009C85F0 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		C0921F29266BFBFD009C85F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0921F2B266BFBFD009C85F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0921F2C266BFBFD009C85F0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C098CFF9260D25F300C08939 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C09FC0FD2648559D00FBDE4B /* ConversationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationModels.swift; sourceTree = "<group>"; };
 		C09FC102264855F700FBDE4B /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
@@ -73,6 +136,13 @@
 			files = (
 				C0EB2C642614E59B00B0B031 /* CoreTelephony.framework in Frameworks */,
 				540A5D6806490AF2FAB20B3E /* Pods_Bise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0921F19266BFBFC009C85F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				C02A6E6B25F3A2F4000C55DB /* Bise */,
+				C0921F11266BFBFB009C85F0 /* Bisewatch */,
+				C0921F20266BFBFC009C85F0 /* Bisewatch Extension */,
 				C02A6E6A25F3A2F4000C55DB /* Products */,
 				BA11FCE7DCE22EB65C0BE473 /* Pods */,
 				52A7C786D8E83F4E3DDDEA82 /* Frameworks */,
@@ -111,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				C02A6E6925F3A2F4000C55DB /* Bise.app */,
+				C0921F10266BFBFB009C85F0 /* Bisewatch.app */,
+				C0921F1C266BFBFC009C85F0 /* Bisewatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +276,30 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		C0921F11266BFBFB009C85F0 /* Bisewatch */ = {
+			isa = PBXGroup;
+			children = (
+				C0921F12266BFBFB009C85F0 /* Interface.storyboard */,
+				C0921F15266BFBFC009C85F0 /* Assets.xcassets */,
+				C0921F17266BFBFC009C85F0 /* Info.plist */,
+			);
+			path = Bisewatch;
+			sourceTree = "<group>";
+		};
+		C0921F20266BFBFC009C85F0 /* Bisewatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C0921F21266BFBFC009C85F0 /* InterfaceController.swift */,
+				C0921F23266BFBFC009C85F0 /* ExtensionDelegate.swift */,
+				C0921F25266BFBFC009C85F0 /* NotificationController.swift */,
+				C0921F27266BFBFC009C85F0 /* ComplicationController.swift */,
+				C0921F29266BFBFD009C85F0 /* Assets.xcassets */,
+				C0921F2B266BFBFD009C85F0 /* Info.plist */,
+				C0921F2C266BFBFD009C85F0 /* PushNotificationPayload.apns */,
+			);
+			path = "Bisewatch Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,15 +313,51 @@
 				C02A6E6725F3A2F4000C55DB /* Resources */,
 				B5F131D9F3941D61F7B77136 /* [CP] Embed Pods Frameworks */,
 				930952E3E755CFEC569DF269 /* [CP] Copy Pods Resources */,
+				C0921F30266BFBFD009C85F0 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0921F2E266BFBFD009C85F0 /* PBXTargetDependency */,
 			);
 			name = Bise;
 			productName = Bise;
 			productReference = C02A6E6925F3A2F4000C55DB /* Bise.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C0921F0F266BFBFB009C85F0 /* Bisewatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0921F37266BFBFD009C85F0 /* Build configuration list for PBXNativeTarget "Bisewatch" */;
+			buildPhases = (
+				C0921F0E266BFBFB009C85F0 /* Resources */,
+				C0921F33266BFBFD009C85F0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0921F1F266BFBFC009C85F0 /* PBXTargetDependency */,
+			);
+			name = Bisewatch;
+			productName = Bisewatch;
+			productReference = C0921F10266BFBFB009C85F0 /* Bisewatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C0921F1B266BFBFC009C85F0 /* Bisewatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0921F36266BFBFD009C85F0 /* Build configuration list for PBXNativeTarget "Bisewatch Extension" */;
+			buildPhases = (
+				C0921F18266BFBFC009C85F0 /* Sources */,
+				C0921F19266BFBFC009C85F0 /* Frameworks */,
+				C0921F1A266BFBFC009C85F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bisewatch Extension";
+			productName = "Bisewatch Extension";
+			productReference = C0921F1C266BFBFC009C85F0 /* Bisewatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -231,11 +365,17 @@
 		C02A6E6125F3A2F4000C55DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					C02A6E6825F3A2F4000C55DB = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					C0921F0F266BFBFB009C85F0 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					C0921F1B266BFBFC009C85F0 = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
@@ -253,6 +393,8 @@
 			projectRoot = "";
 			targets = (
 				C02A6E6825F3A2F4000C55DB /* Bise */,
+				C0921F0F266BFBFB009C85F0 /* Bisewatch */,
+				C0921F1B266BFBFC009C85F0 /* Bisewatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +408,23 @@
 				F9B385742649425A00A8D346 /* GoogleService-Info.plist in Resources */,
 				C02A6E7625F3A2F4000C55DB /* Assets.xcassets in Resources */,
 				C02A6E7425F3A2F4000C55DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0921F0E266BFBFB009C85F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0921F16266BFBFC009C85F0 /* Assets.xcassets in Resources */,
+				C0921F14266BFBFB009C85F0 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0921F1A266BFBFC009C85F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0921F2A266BFBFD009C85F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +512,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0921F18266BFBFC009C85F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0921F26266BFBFC009C85F0 /* NotificationController.swift in Sources */,
+				C0921F28266BFBFC009C85F0 /* ComplicationController.swift in Sources */,
+				C0921F24266BFBFC009C85F0 /* ExtensionDelegate.swift in Sources */,
+				C0921F22266BFBFC009C85F0 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0921F1F266BFBFC009C85F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0921F1B266BFBFC009C85F0 /* Bisewatch Extension */;
+			targetProxy = C0921F1E266BFBFC009C85F0 /* PBXContainerItemProxy */;
+		};
+		C0921F2E266BFBFD009C85F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0921F0F266BFBFB009C85F0 /* Bisewatch */;
+			targetProxy = C0921F2D266BFBFD009C85F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C02A6E7225F3A2F4000C55DB /* Main.storyboard */ = {
@@ -370,6 +553,14 @@
 				C02A6E7825F3A2F4000C55DB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C0921F12266BFBFB009C85F0 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0921F13266BFBFB009C85F0 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -542,6 +733,90 @@
 			};
 			name = Release;
 		};
+		C0921F31266BFBFD009C85F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
+				IBSC_MODULE = Bisewatch_Extension;
+				INFOPLIST_FILE = Bisewatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		C0921F32266BFBFD009C85F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
+				IBSC_MODULE = Bisewatch_Extension;
+				INFOPLIST_FILE = Bisewatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		C0921F34266BFBFD009C85F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
+				INFOPLIST_FILE = "Bisewatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		C0921F35266BFBFD009C85F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SW4D3N59DT;
+				INFOPLIST_FILE = "Bisewatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mestutos.labise.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -559,6 +834,24 @@
 			buildConfigurations = (
 				C02A6E7E25F3A2F4000C55DB /* Debug */,
 				C02A6E7F25F3A2F4000C55DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0921F36266BFBFD009C85F0 /* Build configuration list for PBXNativeTarget "Bisewatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0921F34266BFBFD009C85F0 /* Debug */,
+				C0921F35266BFBFD009C85F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0921F37266BFBFD009C85F0 /* Build configuration list for PBXNativeTarget "Bisewatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0921F31266BFBFD009C85F0 /* Debug */,
+				C0921F32266BFBFD009C85F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
