@@ -7,6 +7,21 @@
 		<key>Bise.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>27</integer>
+		</dict>
+		<key>Bisewatch (Complication).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>30</integer>
+		</dict>
+		<key>Bisewatch (Notification).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
+		<key>Bisewatch.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>28</integer>
 		</dict>
 	</dict>

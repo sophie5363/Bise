@@ -8,7 +8,7 @@
 import Foundation
 
 enum ProfileViewModelType {
-    case info, logout, delete
+    case info, logout, delete, tutoMontre
 }
 
 struct ProfileViewModel {

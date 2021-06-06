@@ -91,6 +91,13 @@ final class ProfileViewController: UIViewController {
         tableView.tableHeaderView = createTableHeader()
     }
     
+//    @objc func didTapComposeButton(){
+//        let vc = TutoComMontreViewController()
+//
+//        let navVC = UINavigationController(rootViewController: vc)
+//        present(navVC, animated: true)
+//    }
+    
     func createTableHeader() -> UIView? {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
@@ -175,6 +182,11 @@ class ProfileTableViewCell: UITableViewCell {
         case .delete:
             textLabel?.textColor = .systemGray
             textLabel?.textAlignment = .center
+        case .tutoMontre:
+            textLabel?.textColor = .red
+            textLabel?.textAlignment = .center
+            
+            
         }
     }
     

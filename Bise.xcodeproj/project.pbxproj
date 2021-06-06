@@ -33,6 +33,7 @@
 		C0921F28266BFBFC009C85F0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F27266BFBFC009C85F0 /* ComplicationController.swift */; };
 		C0921F2A266BFBFD009C85F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0921F29266BFBFD009C85F0 /* Assets.xcassets */; };
 		C0921F2F266BFBFD009C85F0 /* Bisewatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C0921F10266BFBFB009C85F0 /* Bisewatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C0921F3B266C0080009C85F0 /* TutoComMontreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0921F3A266C0080009C85F0 /* TutoComMontreViewController.swift */; };
 		C098CFFA260D25F300C08939 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098CFF9260D25F300C08939 /* StorageManager.swift */; };
 		C09FC0FE2648559D00FBDE4B /* ConversationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC0FD2648559D00FBDE4B /* ConversationModels.swift */; };
 		C09FC103264855F700FBDE4B /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC102264855F700FBDE4B /* ChatModels.swift */; };
@@ -117,6 +118,7 @@
 		C0921F29266BFBFD009C85F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0921F2B266BFBFD009C85F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0921F2C266BFBFD009C85F0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C0921F3A266C0080009C85F0 /* TutoComMontreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoComMontreViewController.swift; sourceTree = "<group>"; };
 		C098CFF9260D25F300C08939 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C09FC0FD2648559D00FBDE4B /* ConversationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationModels.swift; sourceTree = "<group>"; };
 		C09FC102264855F700FBDE4B /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				C04A810D260B949700AA1D85 /* ChatViewController.swift */,
 				C05DBED9264A7D0200DCFCE2 /* LocationPickerViewController.swift */,
 				C05DBEDC264A7D5800DCFCE2 /* PhotoViewerViewController.swift */,
+				C0921F3A266C0080009C85F0 /* TutoComMontreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				C0A1738D2647D23100FEC3B4 /* NewConversationCell.swift in Sources */,
 				C05DBEDD264A7D5800DCFCE2 /* PhotoViewerViewController.swift in Sources */,
 				C09FC0FE2648559D00FBDE4B /* ConversationModels.swift in Sources */,
+				C0921F3B266C0080009C85F0 /* TutoComMontreViewController.swift in Sources */,
 				C0190BC125F6D92A0075AA3E /* DatabaseManager.swift in Sources */,
 				C02A6E8D25F3A6BD000C55DB /* RegisterViewController.swift in Sources */,
 				C02A6E9825F3A76B000C55DB /* NewConversationViewController.swift in Sources */,
