@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuie sur le bouton avec ton coude !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
-                                <rect key="frame" x="54.5" y="240" width="305" height="21"/>
+                                <rect key="frame" x="54.5" y="188" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="WlK-ue-p9R" firstAttribute="centerY" secondItem="7Ne-xz-UuJ" secondAttribute="centerY" id="qvq-aQ-1zj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Interaction Apple Watch" id="awV-0p-1hj"/>
+                    <navigationItem key="navigationItem" title="Interaction Apple Watch" largeTitleDisplayMode="never" id="awV-0p-1hj"/>
                     <connections>
                         <outlet property="btnHopLaBise" destination="WlK-ue-p9R" id="haM-xd-uKw"/>
                         <outlet property="labelWatchMessage" destination="AYx-nX-jFh" id="ySj-Rh-FBR"/>
