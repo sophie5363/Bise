@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="-3278" y="1006"/>
         </scene>
-        <!--Tuto Com Montre View Controller-->
+        <!--Interaction Apple Watch-->
         <scene sceneID="yeq-Ix-pQm">
             <objects>
                 <viewController id="5ZU-ne-ZsD" customClass="TutoComMontreViewController" customModule="Bise" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,39 +70,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
-                                <rect key="frame" x="154" y="433" width="106" height="30"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
+                                <rect key="frame" x="149.5" y="431" width="115" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Connect Watch"/>
+                                <state key="normal" title=" Hop! La bise! "/>
                                 <connections>
                                     <action selector="btnConnectWatch:" destination="5ZU-ne-ZsD" eventType="touchUpInside" id="hRu-0J-Apj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
-                                <rect key="frame" x="146.5" y="493" width="121.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appuie sur le bouton avec ton coude !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
+                                <rect key="frame" x="55.5" y="240" width="305" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wtM-e0-c1y"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstItem="AYx-nX-jFh" firstAttribute="top" secondItem="WlK-ue-p9R" secondAttribute="bottom" constant="30" id="5r3-pM-MfC"/>
-                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerY" secondItem="7Ne-xz-UuJ" secondAttribute="centerY" id="AbN-5d-LIg"/>
-                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="Uec-LV-G4y"/>
-                            <constraint firstItem="AYx-nX-jFh" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="a8c-3J-eH5"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="awV-0p-1hj"/>
+                    <navigationItem key="navigationItem" title="Interaction Apple Watch" id="awV-0p-1hj"/>
                     <connections>
                         <outlet property="labelWatchMessage" destination="AYx-nX-jFh" id="ySj-Rh-FBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8R-GT-RxT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2475" y="1006"/>
+            <point key="canvasLocation" x="-2475.36231884058" y="1005.8035714285713"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wih-j9-4go">
@@ -163,11 +160,14 @@
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
