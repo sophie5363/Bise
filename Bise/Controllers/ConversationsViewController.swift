@@ -8,10 +8,26 @@
 import UIKit
 import FirebaseAuth
 import JGProgressHUD
+import WatchConnectivity
 
 
 /// Controller that show list of conversations
-final  class ConversationsViewController: UIViewController {
+final  class ConversationsViewController: UIViewController, WCSessionDelegate {
+    
+    var session : WCSession?
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
     
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -40,6 +56,13 @@ final  class ConversationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
                             target: self,
                             action: #selector(didTapComposeButton))
@@ -58,6 +81,15 @@ final  class ConversationsViewController: UIViewController {
             strongSelf.startListeningForConversations()
         })
         
+    }
+    
+    private func notifMontre() {
+        //TEST CODE TRIGGER AFFICHAGE MONTRE
+        
+        if let validSession = self.session, validSession.isReachable {
+            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
+            validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
+        }
     }
     
     private func startListeningForConversations() {
@@ -103,6 +135,8 @@ final  class ConversationsViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
+            
+            self?.notifMontre()
             
             let currentConversations = strongSelf.conversations
             

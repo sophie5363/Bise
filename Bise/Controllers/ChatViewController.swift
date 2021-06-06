@@ -70,7 +70,7 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
             session?.activate()
         }
         
-        notifMontre()
+    
         
         
         view.backgroundColor = .red
@@ -99,7 +99,7 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
         button.onTouchUpInside { [weak self] _ in
             self?.presentInputActionSheet()
 
-        
+            self?.notifMontre()
         }
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
