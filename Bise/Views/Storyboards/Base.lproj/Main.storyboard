@@ -70,9 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
                                 <rect key="frame" x="149.5" y="431" width="115" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,9 +80,8 @@
                                     <action selector="btnConnectWatch:" destination="5ZU-ne-ZsD" eventType="touchUpInside" id="hRu-0J-Apj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appuie sur le bouton avec ton coude !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
-                                <rect key="frame" x="55.5" y="240" width="305" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuie sur le bouton avec ton coude !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
+                                <rect key="frame" x="54.5" y="240" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,9 +89,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wtM-e0-c1y"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="Vv5-Fe-bXT"/>
+                            <constraint firstItem="AYx-nX-jFh" firstAttribute="top" secondItem="wtM-e0-c1y" secondAttribute="top" constant="100" id="fdn-ow-NQB"/>
+                            <constraint firstItem="AYx-nX-jFh" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="hHU-Ka-Q7X"/>
+                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerY" secondItem="7Ne-xz-UuJ" secondAttribute="centerY" id="qvq-aQ-1zj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Interaction Apple Watch" id="awV-0p-1hj"/>
                     <connections>
+                        <outlet property="btnHopLaBise" destination="WlK-ue-p9R" id="haM-xd-uKw"/>
                         <outlet property="labelWatchMessage" destination="AYx-nX-jFh" id="ySj-Rh-FBR"/>
                     </connections>
                 </viewController>

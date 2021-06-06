@@ -11,14 +11,11 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bisewatch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="center" title="Button" id="MM6-7q-Vsu">
-                            <connections>
-                                <action selector="btnSendToPhone" destination="AgC-eL-Hgc" id="bfu-rc-aTc"/>
-                            </connections>
-                        </button>
-                        <label width="136" alignment="center" text="Label" textAlignment="center" id="tes-Se-6Q3"/>
+                        <label width="136" alignment="center" textAlignment="center" id="tes-Se-6Q3"/>
+                        <imageView height="112" alignment="center" verticalAlignment="center" image="biseTargetWatch" contentMode="scaleAspectFit" id="sYr-dq-KeG"/>
                     </items>
                     <connections>
+                        <outlet property="imageBise" destination="sYr-dq-KeG" id="EJm-1H-3Pv"/>
                         <outlet property="labelShowMessage" destination="tes-Se-6Q3" id="mna-Gg-eiZ"/>
                     </connections>
                 </controller>
@@ -57,4 +54,7 @@
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="biseTargetWatch" width="1500" height="1500"/>
+    </resources>
 </document>

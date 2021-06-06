@@ -40,6 +40,7 @@
 		C09FC1062648564100FBDE4B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC1052648564100FBDE4B /* SearchResults.swift */; };
 		C09FC109264856AD00FBDE4B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09FC108264856AD00FBDE4B /* ProfileViewModel.swift */; };
 		C0A1738D2647D23100FEC3B4 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1738C2647D23100FEC3B4 /* NewConversationCell.swift */; };
+		C0C4850C266D521100093AE1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0921F12266BFBFB009C85F0 /* Interface.storyboard */; };
 		C0EB2C642614E59B00B0B031 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EB2C632614E59B00B0B031 /* CoreTelephony.framework */; };
 		F9B385742649425A00A8D346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9B385732649425900A8D346 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -427,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C4850C266D521100093AE1 /* Interface.storyboard in Resources */,
 				C0921F2A266BFBFD009C85F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

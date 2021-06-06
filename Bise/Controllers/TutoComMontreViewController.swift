@@ -11,7 +11,8 @@ import WatchConnectivity
 class TutoComMontreViewController: UIViewController, WCSessionDelegate {
  
     
-
+    @IBOutlet weak var btnHopLaBise: UIButton!
+    
     @IBOutlet weak var labelWatchMessage: UILabel!
     var session : WCSession?
     
@@ -24,13 +25,15 @@ class TutoComMontreViewController: UIViewController, WCSessionDelegate {
             session?.activate()
         }
         
+        btnHopLaBise.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
+        
 
     }
     
     
     @IBAction func btnConnectWatch(_ sender: Any) {
         if let validSession = self.session, validSession.isReachable {
-            let dic : [String : Any] = ["iPhoneMsg" : "Hello Watch" as Any]
+            let dic : [String : Any] = ["iPhoneMsg" : "Hop! La bise!" as Any]
             validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
         }
     }
