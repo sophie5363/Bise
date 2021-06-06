@@ -70,6 +70,8 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
             session?.activate()
         }
         
+        notifMontre()
+        
         
         view.backgroundColor = .red
 
@@ -80,6 +82,15 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
         messageInputBar.delegate = self
         setupInputButton()
     }
+    
+    private func notifMontre() {
+        //TEST CODE TRIGGER AFFICHAGE MONTRE
+        
+        if let validSession = self.session, validSession.isReachable {
+            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
+            validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
+        }
+    }
 
     private func setupInputButton() {
         let button = InputBarButtonItem()
@@ -87,6 +98,8 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
         button.setImage(UIImage(systemName: "paperclip"), for: .normal)
         button.onTouchUpInside { [weak self] _ in
             self?.presentInputActionSheet()
+
+        
         }
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
@@ -111,6 +124,7 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         present(actionSheet, animated: true)
+        
     }
 
     private func presentLocationPicker() {
@@ -234,10 +248,10 @@ final class ChatViewController: MessagesViewController, WCSessionDelegate {
                             self?.messagesCollectionView.scrollToBottom()
                         }
                         
-                        if let validSession = self?.session, validSession.isReachable {
-                            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
-                            validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
-                        }
+//                        if let validSession = self?.session, validSession.isReachable {
+//                            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
+//                            validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
+//                        }
                         
                     }
                 case .failure(let error):
@@ -390,6 +404,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
               let messageId = createMessageId() else {
             return
         }
+        
+
         
         print("Sending: \(text)")
         

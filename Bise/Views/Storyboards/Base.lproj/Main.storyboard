@@ -47,9 +47,7 @@
                             <constraint firstItem="wRD-Sb-EsH" firstAttribute="bottom" secondItem="Ef7-a0-Zbl" secondAttribute="bottom" id="d8j-6Q-r4r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profil" id="V3x-jz-Fv9">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="zOT-Ig-gKH"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profil" id="V3x-jz-Fv9"/>
                     <connections>
                         <outlet property="tableView" destination="Ef7-a0-Zbl" id="oyC-qB-jST"/>
                     </connections>
@@ -116,7 +114,6 @@
     <resources>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

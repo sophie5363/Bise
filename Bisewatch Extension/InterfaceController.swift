@@ -31,10 +31,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         // This method is called when watch view controller is no longer visible
     }
 
-    @IBAction func btnSendToPhone() {
-        let dic: [String : Any] = ["watch" : "Hello iPhone" as Any]
-        session.sendMessage(dic, replyHandler: nil, errorHandler: nil)
-    }
     
     //MARK: - SESSION DELEGATE
     
