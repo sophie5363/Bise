@@ -12,11 +12,14 @@ import SDWebImage
 import AVFoundation
 import AVKit
 import CoreLocation
+import WatchConnectivity
 
 
 
-final class ChatViewController: MessagesViewController {
+final class ChatViewController: MessagesViewController, WCSessionDelegate {
     
+    var session : WCSession?
+
     private var senderPhotoURL: URL?
     private var otherUserPhotoURL: URL?
     
@@ -60,6 +63,14 @@ final class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        
+        
         view.backgroundColor = .red
 
         messagesCollectionView.messagesDataSource = self
@@ -203,6 +214,8 @@ final class ChatViewController: MessagesViewController {
         present(actionSheet, animated: true)
     }
     
+//MARK: - LISTENING FOR MESSAGES
+    
     private func listenForMessages(id: String, shouldScrollToBottom: Bool) {
             DatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
                 switch result {
@@ -220,6 +233,12 @@ final class ChatViewController: MessagesViewController {
                         if shouldScrollToBottom {
                             self?.messagesCollectionView.scrollToBottom()
                         }
+                        
+                        if let validSession = self?.session, validSession.isReachable {
+                            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
+                            validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
+                        }
+                        
                     }
                 case .failure(let error):
                     print("failed to get messages: \(error)")
@@ -234,8 +253,24 @@ final class ChatViewController: MessagesViewController {
               listenForMessages(id: conversationId, shouldScrollToBottom: true)
           }
       }
+    
+    // MARK :  - Session Delegate
+
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
 
   }
+
 
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 

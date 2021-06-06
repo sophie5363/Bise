@@ -9,10 +9,7 @@ import UIKit
 import WatchConnectivity
 
 class TutoComMontreViewController: UIViewController, WCSessionDelegate {
- 
-    
 
-    @IBOutlet weak var labelWatchMessage: UILabel!
     var session : WCSession?
     
     override func viewDidLoad() {
@@ -30,7 +27,7 @@ class TutoComMontreViewController: UIViewController, WCSessionDelegate {
     
     @IBAction func btnConnectWatch(_ sender: Any) {
         if let validSession = self.session, validSession.isReachable {
-            let dic : [String : Any] = ["iPhoneMsg" : "Hello Watch" as Any]
+            let dic : [String : Any] = ["iPhoneMsg" : "Une bise reçue!" as Any]
             validSession.sendMessage(dic, replyHandler: nil, errorHandler: nil)
         }
     }
@@ -50,15 +47,15 @@ class TutoComMontreViewController: UIViewController, WCSessionDelegate {
     }
     
     
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("Message from Watch: \(message)")
-        DispatchQueue.main.async {
-            if let value = message["watch"] as? String
-            {
-                self.labelWatchMessage.text = value
-            }
-        }
-    }
+//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+//        print("Message from Watch: \(message)")
+//        DispatchQueue.main.async {
+//            if let value = message["watch"] as? String
+//            {
+//                self.labelWatchMessage.text = value
+//            }
+//        }
+//    }
     
     
 

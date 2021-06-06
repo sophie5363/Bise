@@ -48,11 +48,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profil" id="V3x-jz-Fv9">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="zOT-Ig-gKH">
-                            <connections>
-                                <segue destination="5ZU-ne-ZsD" kind="show" identifier="vcTutoMontre" id="QnD-cn-IAT"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="zOT-Ig-gKH"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ef7-a0-Zbl" id="oyC-qB-jST"/>
@@ -61,48 +57,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGs-2C-ba7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3278" y="1006"/>
-        </scene>
-        <!--Tuto Com Montre View Controller-->
-        <scene sceneID="yeq-Ix-pQm">
-            <objects>
-                <viewController id="5ZU-ne-ZsD" customClass="TutoComMontreViewController" customModule="Bise" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="7Ne-xz-UuJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
-                                <rect key="frame" x="154" y="433" width="106" height="30"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Connect Watch"/>
-                                <connections>
-                                    <action selector="btnConnectWatch:" destination="5ZU-ne-ZsD" eventType="touchUpInside" id="hRu-0J-Apj"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-nX-jFh">
-                                <rect key="frame" x="146.5" y="493" width="121.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wtM-e0-c1y"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstItem="AYx-nX-jFh" firstAttribute="top" secondItem="WlK-ue-p9R" secondAttribute="bottom" constant="30" id="5r3-pM-MfC"/>
-                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerY" secondItem="7Ne-xz-UuJ" secondAttribute="centerY" id="AbN-5d-LIg"/>
-                            <constraint firstItem="WlK-ue-p9R" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="Uec-LV-G4y"/>
-                            <constraint firstItem="AYx-nX-jFh" firstAttribute="centerX" secondItem="7Ne-xz-UuJ" secondAttribute="centerX" id="a8c-3J-eH5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="awV-0p-1hj"/>
-                    <connections>
-                        <outlet property="labelWatchMessage" destination="AYx-nX-jFh" id="ySj-Rh-FBR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8R-GT-RxT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2475" y="1006"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wih-j9-4go">
@@ -165,9 +119,6 @@
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
