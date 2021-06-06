@@ -9,6 +9,7 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
+
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
   
     
@@ -50,6 +51,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             {
                 self.labelShowMessage.setText(value)
                 self.imageBise.setHidden(false)
+                WKInterfaceDevice.current().play(.success)
             }
         }
     }

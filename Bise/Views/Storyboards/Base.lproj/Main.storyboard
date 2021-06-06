@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profil" id="V3x-jz-Fv9">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="zOT-Ig-gKH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="applewatch.watchface" catalog="system" id="zOT-Ig-gKH">
                             <connections>
                                 <segue destination="5ZU-ne-ZsD" kind="show" identifier="vcTutoMontre" id="QnD-cn-IAT"/>
                             </connections>
@@ -71,9 +71,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-ue-p9R">
-                                <rect key="frame" x="149.5" y="431" width="115" height="34"/>
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="K79-EE-zRE"/>
+                                    <constraint firstAttribute="height" constant="200" id="RAQ-0R-m2V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title=" Hop! La bise! "/>
                                 <connections>
@@ -162,9 +166,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="applewatch.watchface" catalog="system" width="114" height="128"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
